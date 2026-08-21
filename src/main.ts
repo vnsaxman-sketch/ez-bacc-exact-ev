@@ -598,16 +598,18 @@ app.innerHTML = `
   <header class="app-header">
 
     <div class="eyebrow">
-      FINITE-SHOE ANALYZER
+      FINITE-SHOE ANALYZER (416 cards)
     </div>
 
     <h1>
-      Baccarat Exact EV Analyzer
+      EZ Baccarat Exact EV Analyzer
     </h1>
 
     <p>
       Finite 8-deck conditional EV analysis
       using exact hypergeometric probabilities.
+      <br><br>
+      Developed by: Long Nguyen
     </p>
 
   </header>
@@ -963,9 +965,9 @@ h1 {
 
   font-size:
     clamp(
-      24px,
+      20px,
       5vw,
-      38px
+      28px
     );
 }
 
