@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))s(n);new MutationObserver(n=>{for(const o of n)if(o.type==="childList")for(const l of o.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&s(l)}).observe(document,{childList:!0,subtree:!0});function a(n){const o={};return n.integrity&&(o.integrity=n.integrity),n.referrerPolicy&&(o.referrerPolicy=n.referrerPolicy),n.crossOrigin==="use-credentials"?o.credentials="include":n.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function s(n){if(n.ep)return;n.ep=!0;const o=a(n);fetch(n.href,o)}})();const w=[1,2,3,4,5,6,7,8,9,0],I=[32,32,32,32,32,32,32,32,32,128];function V(e,t=!0){const a=e.reduce((i,b)=>i+b,0);if(a<6)return{evPlayer:0,evBanker:0,pPlayerWin:0,pBankerWin:0,pDragon7:0,pTie:0};let s=0,n=0,o=0,l=0;for(let i=0;i<10;i++){const b=e[i];if(b<=0)continue;const B=b/a;for(let u=0;u<10;u++){const C=e[u]-(u===i?1:0);if(C<=0)continue;const D=B*(C/(a-1));for(let g=0;g<10;g++){const A=e[g]-(g===i?1:0)-(g===u?1:0);if(A<=0)continue;const P=D*(A/(a-2));for(let m=0;m<10;m++){const f=e[m]-(m===i?1:0)-(m===u?1:0)-(m===g?1:0);if(f<=0)continue;const S=P*(f/(a-3)),E=(w[i]+w[g])%10,c=(w[u]+w[m])%10,k=(r,h,y,v=!1)=>{r>h?s+=y:h>r?t&&v&&h===7?l+=y:n+=y:o+=y};if(E>=8||c>=8){k(E,c,S);continue}if(E>=6){if(c<=5)for(let r=0;r<10;r++){const h=e[r]-(r===i?1:0)-(r===u?1:0)-(r===g?1:0)-(r===m?1:0);if(h<=0)continue;const y=S*(h/(a-4)),v=(c+w[r])%10;k(E,v,y,!0)}else k(E,c,S);continue}for(let r=0;r<10;r++){const h=e[r]-(r===i?1:0)-(r===u?1:0)-(r===g?1:0)-(r===m?1:0);if(h<=0)continue;const y=S*(h/(a-4)),v=w[r],F=(E+v)%10;let L=!1;if((c<=2||c===3&&v!==8||c===4&&[2,3,4,5,6,7].includes(v)||c===5&&[4,5,6,7].includes(v)||c===6&&[6,7].includes(v))&&(L=!0),L)for(let x=0;x<10;x++){const M=e[x]-(x===i?1:0)-(x===u?1:0)-(x===g?1:0)-(x===m?1:0)-(x===r?1:0);if(M<=0)continue;const H=y*(M/(a-5)),W=(c+w[x])%10;k(F,W,H,!0)}else k(F,c,y)}}}}}const T=s-n-l;let p;return t?p=n-s:p=.95*(n+l)-s,{evPlayer:T,evBanker:p,pPlayerWin:s,pBankerWin:n+l,pDragon7:l,pTie:o}}function Z(){const e=[];for(let t=0;t<I.length;t++){const a=I[t];for(let s=0;s<a;s++)e.push(t)}return e}function G(e){for(let t=e.length-1;t>0;t--){const a=Math.floor(Math.random()*(t+1));[e[t],e[a]]=[e[a],e[t]]}}const U=document.querySelector("#app");U.innerHTML=`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))d(n);new MutationObserver(n=>{for(const r of n)if(r.type==="childList")for(const l of r.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&d(l)}).observe(document,{childList:!0,subtree:!0});function a(n){const r={};return n.integrity&&(r.integrity=n.integrity),n.referrerPolicy&&(r.referrerPolicy=n.referrerPolicy),n.crossOrigin==="use-credentials"?r.credentials="include":n.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function d(n){if(n.ep)return;n.ep=!0;const r=a(n);fetch(n.href,r)}})();const S=[1,2,3,4,5,6,7,8,9,0],I=[32,32,32,32,32,32,32,32,32,128];function O(t,e=!0){const a=t.reduce((i,E)=>i+E,0);if(a<6)return{evPlayer:0,evBanker:0,evDragon7:0,pPlayerWin:0,pBankerWin:0,pDragon7:0,pTie:0};let d=0,n=0,r=0,l=0;for(let i=0;i<10;i++){const E=t[i];if(E<=0)continue;const $=E/a;for(let m=0;m<10;m++){const N=t[m]-(m===i?1:0);if(N<=0)continue;const V=$*(N/(a-1));for(let p=0;p<10;p++){const k=t[p]-(p===i?1:0)-(p===m?1:0);if(k<=0)continue;const C=V*(k/(a-2));for(let s=0;s<10;s++){const D=t[s]-(s===i?1:0)-(s===m?1:0)-(s===p?1:0);if(D<=0)continue;const T=C*(D/(a-3)),f=(S[i]+S[p])%10,u=(S[m]+S[s])%10,L=(o,h,v,y=!1)=>{o>h?d+=v:h>o?e&&y&&h===7?l+=v:n+=v:r+=v};if(f>=8||u>=8){L(f,u,T);continue}if(f>=6){if(u<=5)for(let o=0;o<10;o++){const h=t[o]-(o===i?1:0)-(o===m?1:0)-(o===p?1:0)-(o===s?1:0);if(h<=0)continue;const v=T*(h/(a-4)),y=(u+S[o])%10;L(f,y,v,!0)}else L(f,u,T);continue}for(let o=0;o<10;o++){const h=t[o]-(o===i?1:0)-(o===m?1:0)-(o===p?1:0)-(o===s?1:0);if(h<=0)continue;const v=T*(h/(a-4)),y=S[o],q=(f+y)%10;let A=!1;if((u<=2||u===3&&y!==8||u===4&&[2,3,4,5,6,7].includes(y)||u===5&&[4,5,6,7].includes(y)||u===6&&[6,7].includes(y))&&(A=!0),A)for(let x=0;x<10;x++){const M=t[x]-(x===i?1:0)-(x===m?1:0)-(x===p?1:0)-(x===s?1:0)-(x===o?1:0);if(M<=0)continue;const G=v*(M/(a-5)),W=(u+S[x])%10;L(q,W,G,!0)}else L(q,u,v)}}}}}const w=d-n-l,g=41*l-1;let b;return e?b=n-d:b=.95*(n+l)-d,{evPlayer:w,evBanker:b,evDragon7:g,pPlayerWin:d,pBankerWin:n+l,pDragon7:l,pTie:r}}function Z(){const t=[];for(let e=0;e<I.length;e++){const a=I[e];for(let d=0;d<a;d++)t.push(e)}return t}function U(t){for(let e=t.length-1;e>0;e--){const a=Math.floor(Math.random()*(e+1));[t[e],t[a]]=[t[a],t[e]]}}const z=document.querySelector("#app");z.innerHTML=`
 
 <div class="app-shell">
 
@@ -263,7 +263,7 @@
   </main>
 
 </div>
-`;const O=document.createElement("style");O.textContent=`
+`;const H=document.createElement("style");H.textContent=`
 
 :root {
 
@@ -740,46 +740,58 @@ progress {
 
 }
 
-`;document.head.appendChild(O);let d=[...I],q=[],N="simulation";function R(){return(document.querySelector('input[name="mode"]:checked')?.value??"EZ")==="EZ"}function $(){const e=d.reduce((i,b)=>i+b,0),t=V(d,R()),s=e>0?1.96*1.07/Math.sqrt(e)*100:0;let n="NEUTRAL / NO ADVANTAGE";t.evBanker>0?n=">>> TRIGGER: BANKER BET ADVANTAGE DETECTED! <<<":t.evPlayer>0&&(n=">>> TRIGGER: PLAYER BET ADVANTAGE DETECTED! <<<");const o=R()?"EZ Baccarat (Dragon 7 Push)":"Standard 5% Commission Baccarat",l=`A : ${d[0]} | 2 : ${d[1]} | 3 : ${d[2]} | 4 : ${d[3]}
-5 : ${d[4]} | 6 : ${d[5]} | 7 : ${d[6]} | 8 : ${d[7]}
-9 : ${d[8]} | 10/J/Q/K : ${d[9]}`,T=`Cards Remaining: ${e} / 416
-Decks Remaining: ${(e/52).toFixed(2)}
-Rules: ${o}
+`;document.head.appendChild(H);let c=[...I],R=[],B="simulation";function F(){return(document.querySelector('input[name="mode"]:checked')?.value??"EZ")==="EZ"}function P(){const t=c.reduce((b,i)=>b+i,0),e=O(c,F()),d=t>0?1.96*1.07/Math.sqrt(t)*100:0;let n="NEUTRAL / NO ADVANTAGE";e.evBanker>0?n=">>> TRIGGER: BANKER BET ADVANTAGE DETECTED! <<<":e.evPlayer>0&&(n=">>> TRIGGER: PLAYER BET ADVANTAGE DETECTED! <<<");const r=F()?"EZ Baccarat (Dragon 7 Push)":"Standard 5% Commission Baccarat",l=`A : ${c[0]} | 2 : ${c[1]} | 3 : ${c[2]} | 4 : ${c[3]}
+5 : ${c[4]} | 6 : ${c[5]} | 7 : ${c[6]} | 8 : ${c[7]}
+9 : ${c[8]} | 10/J/Q/K : ${c[9]}`,w=`Cards Remaining: ${t} / 416
+Decks Remaining: ${(t/52).toFixed(2)}
+Rules: ${r}
 
 
 --- EXACT CONDITIONAL EXPECTED VALUES ---
 
 
 Banker EV:
-${(t.evBanker*100).toFixed(4)}%
+${(e.evBanker*100).toFixed(4)}%
 
 
 Banker House Edge:
-${(-t.evBanker*100).toFixed(4)}%
+${(-e.evBanker*100).toFixed(4)}%
 
 
 Player EV:
-${(t.evPlayer*100).toFixed(4)}%
+${(e.evPlayer*100).toFixed(4)}%
 
 
 Player House Edge:
-${(-t.evPlayer*100).toFixed(4)}%
+${(-e.evPlayer*100).toFixed(4)}%
 
 
 Dragon 7 Probability:
-${(t.pDragon7*100).toFixed(3)}%
+${(e.pDragon7*100).toFixed(4)}%
+
+Dragon 7 Break-Even Probability:
+${(100/41).toFixed(4)}%
+
+Dragon 7 EV:
+${(e.evDragon7*100).toFixed(4)}%
+
+Dragon 7 House Edge:
+${(-e.evDragon7*100).toFixed(4)}%
+
+Dragon 7 Status:
+${e.evDragon7>0?"POSITIVE EV":e.evDragon7<0?"NEGATIVE EV":"BREAK-EVEN"}
 
 
 Tie Probability:
-${(t.pTie*100).toFixed(3)}%
+${(e.pTie*100).toFixed(3)}%
 
 
 Player Win Probability:
-${(t.pPlayerWin*100).toFixed(3)}%
+${(e.pPlayerWin*100).toFixed(3)}%
 
 
 Banker Win Probability:
-${(t.pBankerWin*100).toFixed(3)}%
+${(e.pBankerWin*100).toFixed(3)}%
 
 
 --- STATISTICAL CONFIDENCE & RISK ---
@@ -788,7 +800,7 @@ ${(t.pBankerWin*100).toFixed(3)}%
 Estimation Error Boundary (95% CI):
 
 
-±${s.toFixed(3)}%
+±${d.toFixed(3)}%
 
 
 Current Threshold Status:
@@ -800,7 +812,7 @@ ${n}
 --- REMAINING RANK COMPOSITION ---
 
 
-${l}`,p=document.querySelector("#live-output");p&&(p.textContent=T)}const z=["A","2","3","4","5","6","7","8","9","10/J/Q/K"],K=document.querySelector("#rank-buttons");z.forEach((e,t)=>{const a=document.createElement("button");a.textContent=e,a.addEventListener("click",()=>{d[t]>0&&(d[t]--,q.push(t),$())}),K.appendChild(a)});document.querySelector("#undo-card").addEventListener("click",()=>{const e=q.pop();e!==void 0&&d[e]++,$()});document.querySelector("#reset-shoe").addEventListener("click",()=>{d=[...I],q=[],$()});document.querySelector("#enter-app").addEventListener("click",()=>{document.querySelector("#warning-page").classList.add("hidden"),document.querySelector("#analyzer-page").classList.remove("hidden"),$()});document.querySelectorAll(".tab").forEach(e=>{e.addEventListener("click",()=>{N=e.dataset.tab??"simulation",document.querySelectorAll(".tab").forEach(t=>{t.classList.toggle("active",t===e)}),document.querySelector("#simulation-tab").classList.toggle("hidden",N!=="simulation"),document.querySelector("#live-tab").classList.toggle("hidden",N!=="live"),N==="live"&&$()})});document.querySelectorAll('input[name="mode"]').forEach(e=>{e.addEventListener("change",()=>{N==="live"&&$()})});document.querySelector("#run-sim").addEventListener("click",async()=>{const e=document.querySelector("#num-shoes"),t=document.querySelector("#cut-card"),a=Math.max(1,Number(e.value)||1),s=Math.max(0,Math.min(416,Number(t.value)||52)),n=R(),o=document.querySelector("#run-sim"),l=document.querySelector("#progress"),T=document.querySelector("#sim-results");o.disabled=!0,l.value=0,T.textContent="Simulation running...";let p=0,i=0,b=0,B=-1/0,u=-1/0;for(let A=0;A<a;A++){const P=Z();G(P);const m=[...I];for(;P.length>s;){const f=V(m,n);p++,f.evBanker>0&&i++,f.evPlayer>0&&b++,B=Math.max(B,f.evBanker),u=Math.max(u,f.evPlayer);const S=[4,5,6],E=Math.min(S[Math.floor(Math.random()*S.length)],P.length);for(let c=0;c<E;c++){const k=P.pop();k!==void 0&&m[k]--}}l.value=(A+1)/a*100,await new Promise(f=>requestAnimationFrame(()=>f()))}const C=n?"EZ Baccarat":"Standard 5% Commission",D=p>0?i/p*100:0,g=p>0?b/p*100:0;T.textContent=`--- SIMULATION RESULTS ---
+${l}`,g=document.querySelector("#live-output");g&&(g.textContent=w)}const K=["A","2","3","4","5","6","7","8","9","10/J/Q/K"],Y=document.querySelector("#rank-buttons");K.forEach((t,e)=>{const a=document.createElement("button");a.textContent=t,a.addEventListener("click",()=>{c[e]>0&&(c[e]--,R.push(e),P())}),Y.appendChild(a)});document.querySelector("#undo-card").addEventListener("click",()=>{const t=R.pop();t!==void 0&&c[t]++,P()});document.querySelector("#reset-shoe").addEventListener("click",()=>{c=[...I],R=[],P()});document.querySelector("#enter-app").addEventListener("click",()=>{document.querySelector("#warning-page").classList.add("hidden"),document.querySelector("#analyzer-page").classList.remove("hidden"),P()});document.querySelectorAll(".tab").forEach(t=>{t.addEventListener("click",()=>{B=t.dataset.tab??"simulation",document.querySelectorAll(".tab").forEach(e=>{e.classList.toggle("active",e===t)}),document.querySelector("#simulation-tab").classList.toggle("hidden",B!=="simulation"),document.querySelector("#live-tab").classList.toggle("hidden",B!=="live"),B==="live"&&P()})});document.querySelectorAll('input[name="mode"]').forEach(t=>{t.addEventListener("change",()=>{B==="live"&&P()})});document.querySelector("#run-sim").addEventListener("click",async()=>{const t=document.querySelector("#num-shoes"),e=document.querySelector("#cut-card"),a=Math.max(1,Number(t.value)||1),d=Math.max(0,Math.min(416,Number(e.value)||52)),n=F(),r=document.querySelector("#run-sim"),l=document.querySelector("#progress"),w=document.querySelector("#sim-results");r.disabled=!0,l.value=0,w.textContent="Simulation running...";let g=0,b=0,i=0,E=-1/0,$=-1/0;for(let p=0;p<a;p++){const k=Z();U(k);const C=[...I];for(;k.length>d;){const s=O(C,n);g++,s.evBanker>0&&b++,s.evPlayer>0&&i++,E=Math.max(E,s.evBanker),$=Math.max($,s.evPlayer);const D=[4,5,6],T=Math.min(D[Math.floor(Math.random()*D.length)],k.length);for(let f=0;f<T;f++){const u=k.pop();u!==void 0&&C[u]--}}l.value=(p+1)/a*100,await new Promise(s=>requestAnimationFrame(()=>s()))}const m=n?"EZ Baccarat":"Standard 5% Commission",N=g>0?b/g*100:0,V=g>0?i/g*100:0;w.textContent=`--- SIMULATION RESULTS ---
 
 
 Shoes Simulated:
@@ -808,39 +820,39 @@ ${a}
 
 
 Variant:
-${C}
+${m}
 
 
 Cut Card:
-${s} cards remaining
+${d} cards remaining
 
 
 Total Hands Analyzed:
-${p}
+${g}
 
 
 Hands with Banker EV > 0:
-${i}
-
-
-Percentage:
-${D.toFixed(4)}%
-
-
-Hands with Player EV > 0:
 ${b}
 
 
 Percentage:
-${g.toFixed(4)}%
+${N.toFixed(4)}%
+
+
+Hands with Player EV > 0:
+${i}
+
+
+Percentage:
+${V.toFixed(4)}%
 
 
 Maximum Banker EV Observed:
-${(B*100).toFixed(4)}%
+${(E*100).toFixed(4)}%
 
 
 Maximum Player EV Observed:
-${(u*100).toFixed(4)}%
+${($*100).toFixed(4)}%
 
 
 SUMMARY:
@@ -857,4 +869,4 @@ shoe as an infinite deck.
 
 
 Positive EV states are therefore identified from
-the current mathematical shoe composition.`,o.disabled=!1});
+the current mathematical shoe composition.`,r.disabled=!1});
