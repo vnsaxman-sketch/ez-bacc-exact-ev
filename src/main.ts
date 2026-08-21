@@ -18,6 +18,7 @@ type ShoeCounts = number[];
 interface EVResult {
   evPlayer: number;
   evBanker: number;
+  evDragon7: number;
 
   pPlayerWin: number;
   pBankerWin: number;
@@ -98,6 +99,7 @@ function getExactEV(
     return {
       evPlayer: 0,
       evBanker: 0,
+      evDragon7: 0,
       pPlayerWin: 0,
       pBankerWin: 0,
       pDragon7: 0,
@@ -444,7 +446,7 @@ function getExactEV(
                   w6,
                   true
                 );
-              }
+              } 
 
             } else {
 
@@ -477,6 +479,15 @@ function getExactEV(
     pBankerWinStandard -
     pDragon7;
 
+  // ===============================================
+  // Dragon  EV
+  // 40:1
+  // Win = +40
+  // Lose = -1
+  // EV = 40P(win) - 1P(loss)
+  // = 41P(win) - 1
+  // =============================================
+  const evDragon7 = (41 * pDragon7) - 1;
 
   // ==========================================================
   // BANKER EV
@@ -518,6 +529,7 @@ function getExactEV(
   return {
     evPlayer,
     evBanker,
+    evDragon7,
     pPlayerWin,
     pBankerWin:
       pBankerWinStandard +
@@ -1483,7 +1495,25 @@ ${(-ev.evPlayer * 100).toFixed(4)}%
 
 
 Dragon 7 Probability:
-${(ev.pDragon7 * 100).toFixed(3)}%
+${(ev.pDragon7 * 100).toFixed(4)}%
+
+Dragon 7 Break-Even Probability:
+${(100 / 41).toFixed(4)}%
+
+Dragon 7 EV:
+${(ev.evDragon7 * 100).toFixed(4)}%
+
+Dragon 7 House Edge:
+${(-ev.evDragon7 * 100).toFixed(4)}%
+
+Dragon 7 Status:
+${
+    ev.evDragon7 > 0
+    ? "POSITIVE EV"
+    : ev.evDragon7 < 0
+      ? "NEGATIVE EV"
+      : "BREAK-EVEN"
+}
 
 
 Tie Probability:
