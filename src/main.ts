@@ -203,7 +203,8 @@ function getExactEV(
           const settleHand = (
             finalPlayer: number,
             finalBanker: number,
-            probability: number
+            probability: number,
+            bankerIsThreeCards: boolean = false
           ): void => {
 
             if (finalPlayer > finalBanker) {
@@ -213,7 +214,11 @@ function getExactEV(
             } else if (finalBanker > finalPlayer) {
 
               if (
+                //EZ Baccarat Dragon 7:
+                //Only a Banker WIN with a THREE-CARD total of 7
+                //is a push on the Banker wager.
                 isEzBaccarat &&
+                bankerIsThreeCards &&
                 finalBanker === 7
               ) {
 
@@ -295,7 +300,8 @@ function getExactEV(
                 settleHand(
                   playerValue,
                   finalBanker,
-                  w5
+                  w5,
+                  true
                 );
               }
 
@@ -435,7 +441,8 @@ function getExactEV(
                 settleHand(
                   finalPlayer,
                   finalBanker,
-                  w6
+                  w6,
+                  true
                 );
               }
 
